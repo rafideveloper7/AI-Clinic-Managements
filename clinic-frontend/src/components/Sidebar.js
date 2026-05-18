@@ -54,7 +54,7 @@ export default function Sidebar({ role }) {
                 href={item.href}
                 className={`block rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   active
-                    ? "bg-white text-[var(--secondry)] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
+                    ? "bg-black text-[var(--primary)] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
                     : "text-white hover:bg-white/12 hover:text-white"
                 }`}
               >
