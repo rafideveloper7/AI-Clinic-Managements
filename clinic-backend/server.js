@@ -20,3 +20,6 @@ const startServer = async () => {
 };
 
 startServer();
+
+// Add this single line at the very bottom
+module.exports = app;
