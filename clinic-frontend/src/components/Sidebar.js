@@ -39,7 +39,7 @@ export default function Sidebar({ role }) {
         <div className="rounded-[28px] border border-white/10 bg-white/8 p-5">
           <p className="text-xs uppercase tracking-[0.4em] text-[var(--primary-light)]">AI Clinic</p>
           <h2 className="mt-3 text-2xl font-semibold">CareOps Console</h2>
-          <p className="mt-2 text-sm text-blue-100">
+          <p className="mt-2 text-sm text-white/90">
             Premium medical workflows for your clinic.
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function Sidebar({ role }) {
                 className={`block rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   active
                     ? "bg-white text-[var(--primary)] shadow-[0_12px_24px_rgba(0,0,0,0.12)]"
-                    : "text-blue-100 hover:bg-white/12 hover:text-white"
+                    : "text-white hover:bg-white/12 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -68,8 +68,8 @@ export default function Sidebar({ role }) {
       <div className="space-y-4">
         <div className="rounded-[24px] border border-white/10 bg-white/8 p-4">
           <p className="text-xs uppercase tracking-[0.25em] text-[var(--primary-light)]">Current user</p>
-          <p className="mt-2 font-semibold">{user?.name || "Clinic member"}</p>
-          <p className="text-sm text-blue-100">{user?.email || "No email loaded"}</p>
+          <p className="mt-2 font-semibold text-white">{user?.name || "Clinic member"}</p>
+          <p className="text-sm text-white/80">{user?.email || "No email loaded"}</p>
         </div>
 
         <button
