@@ -11,12 +11,12 @@ export default function AppointmentForm({
   return (
     <form onSubmit={onSubmit} className="medical-surface rounded-[28px] p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#2e2143]">Appointment Form</h2>
-        <p className="text-sm text-[#7a688f]">Book appointments in under a minute.</p>
+        <h2 className="text-xl font-semibold text-slate-900">Appointment Form</h2>
+        <p className="text-sm text-slate-600">Book appointments in under a minute.</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Patient</span>
           <select
             className="medical-input"
@@ -32,7 +32,7 @@ export default function AppointmentForm({
             ))}
           </select>
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Doctor</span>
           <select
             className="medical-input"
@@ -48,7 +48,7 @@ export default function AppointmentForm({
             ))}
           </select>
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Date and time</span>
           <input
             type="datetime-local"
@@ -58,7 +58,7 @@ export default function AppointmentForm({
             required
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Status</span>
           <select
             className="medical-input"
@@ -73,7 +73,7 @@ export default function AppointmentForm({
         </label>
       </div>
 
-      <label className="mt-4 block space-y-2 text-sm font-medium text-[#5f5070]">
+      <label className="mt-4 block space-y-2 text-sm font-medium text-slate-700">
         <span>Notes</span>
         <textarea
           rows={3}

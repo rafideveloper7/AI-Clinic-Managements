@@ -13,8 +13,8 @@ export default function PrescriptionForm({
     <form onSubmit={onSubmit} className="medical-surface rounded-[28px] p-6">
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-[#2e2143]">Prescription Form</h2>
-          <p className="text-sm text-[#7a688f]">Issue structured prescriptions and keep them export-ready.</p>
+          <h2 className="text-xl font-semibold text-slate-900">Prescription Form</h2>
+          <p className="text-sm text-slate-600">Issue structured prescriptions and keep them export-ready.</p>
         </div>
         <button
           type="button"
@@ -25,7 +25,7 @@ export default function PrescriptionForm({
         </button>
       </div>
 
-      <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+      <label className="space-y-2 text-sm font-medium text-slate-700">
         <span>Patient</span>
         <select
           className="medical-input"
@@ -75,7 +75,7 @@ export default function PrescriptionForm({
         ))}
       </div>
 
-      <label className="mt-4 block space-y-2 text-sm font-medium text-[#5f5070]">
+      <label className="mt-4 block space-y-2 text-sm font-medium text-slate-700">
         <span>General instructions</span>
         <textarea
           rows={3}

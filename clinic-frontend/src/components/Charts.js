@@ -13,21 +13,21 @@ import {
   YAxis,
 } from "recharts";
 
-const COLORS = ["#ffb2e6", "#f7aef8", "#e382f9", "#b388eb", "#72ddf7"];
+const COLORS = ["#2C5EAD", "#1591DC", "#4BB8FA", "#C4E2F5"];
 
 export function MetricsBarChart({ data, title }) {
   return (
     <section className="medical-surface rounded-[28px] p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#2e2143]">{title}</h2>
-        <p className="text-sm text-[#7a688f]">Live summary from the clinic API.</p>
+        <h2 className="text-xl font-semibold text-slate-900">{title}</h2>
+        <p className="text-sm text-slate-600">Live summary from the clinic API.</p>
       </div>
       <div className="h-[320px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
-            <CartesianGrid strokeDasharray="4 4" stroke="#efdff9" vertical={false} />
-            <XAxis dataKey="name" stroke="#6f5a85" />
-            <YAxis stroke="#6f5a85" allowDecimals={false} />
+            <CartesianGrid strokeDasharray="4 4" stroke="rgba(44, 94, 173, 0.1)" vertical={false} />
+            <XAxis dataKey="name" stroke="#475569" />
+            <YAxis stroke="#475569" allowDecimals={false} />
             <Tooltip />
             <Bar dataKey="value" radius={[12, 12, 0, 0]}>
               {data.map((entry, index) => (
@@ -45,8 +45,8 @@ export function StatusPieChart({ data, title }) {
   return (
     <section className="medical-surface rounded-[28px] p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#2e2143]">{title}</h2>
-        <p className="text-sm text-[#7a688f]">Breakdown for faster decision making.</p>
+        <h2 className="text-xl font-semibold text-slate-900">{title}</h2>
+        <p className="text-sm text-slate-600">Breakdown for faster decision making.</p>
       </div>
       <div className="h-[320px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -69,7 +69,7 @@ export function StatusPieChart({ data, title }) {
       </div>
       <div className="mt-4 flex flex-wrap gap-3">
         {data.map((item, index) => (
-          <div key={item.name} className="inline-flex items-center gap-2 rounded-full bg-[rgba(247,174,248,0.18)] px-3 py-1 text-xs font-medium text-[#5f2fac]">
+          <div key={item.name} className="inline-flex items-center gap-2 rounded-full bg-[rgba(44,94,173,0.1)] px-3 py-1 text-xs font-medium text-slate-700">
             <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }} />
             {item.name}: {item.value}
           </div>

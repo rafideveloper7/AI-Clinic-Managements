@@ -19,12 +19,12 @@ export default function PatientForm({
   return (
     <form onSubmit={onSubmit} className="medical-surface rounded-[28px] p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#2e2143]">Patient Form</h2>
-        <p className="text-sm text-[#7a688f]">Create or update core patient records.</p>
+        <h2 className="text-xl font-semibold text-slate-900">Patient Form</h2>
+        <p className="text-sm text-slate-600">Create or update core patient records.</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Full name</span>
           <input
             className="medical-input"
@@ -33,7 +33,7 @@ export default function PatientForm({
             required
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Age</span>
           <input
             type="number"
@@ -44,7 +44,7 @@ export default function PatientForm({
             required
           />
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Gender</span>
           <select
             className="medical-input"
@@ -56,7 +56,7 @@ export default function PatientForm({
             <option value="other">Other</option>
           </select>
         </label>
-        <label className="space-y-2 text-sm font-medium text-[#5f5070]">
+        <label className="space-y-2 text-sm font-medium text-slate-700">
           <span>Phone</span>
           <input
             className="medical-input"
@@ -66,7 +66,7 @@ export default function PatientForm({
         </label>
       </div>
 
-      <label className="mt-4 block space-y-2 text-sm font-medium text-[#5f5070]">
+      <label className="mt-4 block space-y-2 text-sm font-medium text-slate-700">
         <span>Address</span>
         <textarea
           rows={3}
