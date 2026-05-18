@@ -101,14 +101,14 @@ export default function DoctorPatientsPage() {
   }
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Patients"
         subtitle="Create and maintain patient records directly from the doctor workspace."
       />
 
       {message ? (
-        <div className="mb-6 rounded-2xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-700">
+        <div className="mb-6 rounded-2xl border border-[var(--border)] bg-[var(--primary-lighter)]/30 px-4 py-3 text-sm text-[var(--primary)]">
           {message}
         </div>
       ) : null}
@@ -123,11 +123,11 @@ export default function DoctorPatientsPage() {
           busy={saving}
         />
 
-        <section className="rounded-[28px] border border-white/70 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+        <section className="rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.05)]">
           <h2 className="text-xl font-semibold text-slate-950">Patient Directory</h2>
           <div className="mt-6 space-y-4">
             {patients.map((patient) => (
-              <article key={patient._id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <article key={patient._id} className="rounded-2xl border border-[var(--border)] bg-[var(--primary-lighter)]/20 p-4 hover:shadow-md transition-shadow">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900">{patient.name}</h3>
@@ -139,7 +139,7 @@ export default function DoctorPatientsPage() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEdit(patient)}
-                      className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-white"
+                      className="rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[var(--primary-lighter)]/20"
                     >
                       Edit
                     </button>
