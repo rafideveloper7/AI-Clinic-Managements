@@ -103,21 +103,20 @@ export default function AdminReceptionistsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f0f0f0] p-6 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Receptionists"
         subtitle="Admin can create, update, and delete front-desk accounts so the reception area feels complete."
       />
 
       {message ? (
-        <div className="mb-6 rounded-2xl border border-[#add8e6] bg-[#e6f3ff] px-4 py-3 text-sm text-[#007bff] font-medium">
+        <div className="mb-6 rounded-2xl border border-[var(--border)] bg-[var(--primary-lighter)]/30 px-4 py-3 text-sm text-[var(--primary)] font-medium">
           {message}
         </div>
       ) : null}
 
       <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        {/* Form Container */}
-        <form onSubmit={handleSubmit} className="h-fit rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)]">
+        <form onSubmit={handleSubmit} className="h-fit rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.05)]">
           <div className="mb-6">
             <h2 className="text-xl font-semibold text-slate-950">
               {editingId ? "Update Receptionist" : "Create Receptionist"}
@@ -134,7 +133,7 @@ export default function AdminReceptionistsPage() {
               placeholder="Receptionist name"
               value={form.name}
               onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required
             />
             <input
@@ -142,7 +141,7 @@ export default function AdminReceptionistsPage() {
               placeholder="Receptionist email"
               value={form.email}
               onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required
             />
             <input
@@ -150,13 +149,13 @@ export default function AdminReceptionistsPage() {
               placeholder={editingId ? "New password (optional)" : "Receptionist password"}
               value={form.password}
               onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required={!editingId}
             />
             <select
               value={form.plan}
               onChange={(event) => setForm((current) => ({ ...current, plan: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
             >
               <option value="free">Free Plan</option>
               <option value="pro">Pro Plan</option>
@@ -167,7 +166,7 @@ export default function AdminReceptionistsPage() {
             <button
               type="submit"
               disabled={saving}
-              className="rounded-full bg-[#007bff] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0056b3] disabled:opacity-60 shadow-sm"
+              className="rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition hover:shadow-[0_0_0_4px_var(--primary-lighter)] disabled:opacity-60"
             >
               {saving ? "Saving..." : editingId ? "Update receptionist" : "Create receptionist"}
             </button>
@@ -176,7 +175,7 @@ export default function AdminReceptionistsPage() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f0f0f0]"
+                className="rounded-full border border-[var(--border)] bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[var(--primary-lighter)]/20"
               >
                 Cancel
               </button>
@@ -184,37 +183,36 @@ export default function AdminReceptionistsPage() {
           </div>
         </form>
 
-        {/* List Section Grid */}
         <div className="grid gap-4 lg:grid-cols-2 content-start">
           {receptionists.length ? receptionists.map((member) => (
-            <article key={member._id} className="rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)] flex flex-col justify-between">
+            <article key={member._id} className="rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.05)] flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
                 <div className="flex items-start justify-between gap-4">
                   <div className="truncate">
                     <h2 className="text-xl font-semibold text-slate-950 truncate">{member.name}</h2>
                     <p className="mt-1 text-sm text-slate-600 truncate">{member.email}</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-[#e6f3ff] border border-[#add8e6]/60 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#007bff]">
+                  <span className="shrink-0 rounded-full bg-[var(--primary-lighter)]/50 border border-[var(--border)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--primary)]">
                     {member.role || "Staff"}
                   </span>
                 </div>
 
                 <div className="mt-6 grid gap-3 text-sm">
-                  <div className="rounded-2xl bg-[#f0f0f0]/50 p-4 border border-slate-100">
+                  <div className="rounded-2xl bg-[var(--primary-lighter)]/20 p-4 border border-[var(--border)]">
                     <p className="text-xs text-slate-500 uppercase font-medium tracking-wider">Plan</p>
                     <p className="mt-1 font-semibold text-slate-900 capitalize">{member.plan || "free"}</p>
                   </div>
-                  <div className="rounded-2xl bg-[#f0f0f0]/50 p-4 border border-slate-100">
+                  <div className="rounded-2xl bg-[var(--primary-lighter)]/20 p-4 border border-[var(--border)]">
                     <p className="text-xs text-slate-500 uppercase font-medium tracking-wider">Operational focus</p>
                     <p className="mt-1 font-semibold text-slate-900">Front-desk workflows</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center gap-2 pt-4 border-t border-slate-100">
+              <div className="mt-6 flex items-center gap-2 pt-4 border-t border-[var(--border)]">
                 <button
                   onClick={() => handleEdit(member)}
-                  className="flex-1 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[#f0f0f0]"
+                  className="flex-1 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-[var(--primary-lighter)]/20"
                 >
                   Edit
                 </button>
@@ -227,7 +225,7 @@ export default function AdminReceptionistsPage() {
               </div>
             </article>
           )) : (
-            <div className="rounded-[28px] border border-dashed border-slate-300 bg-white/70 p-10 text-center text-sm text-slate-500 lg:col-span-2">
+            <div className="rounded-[28px] border border-dashed border-[var(--border)] bg-white/70 p-10 text-center text-sm text-slate-500 lg:col-span-2">
               No receptionists found yet.
             </div>
           )}
