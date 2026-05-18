@@ -37,19 +37,19 @@ export default function PatientDashboard() {
   const patientProfile = patients[0];
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Patient Dashboard"
         subtitle="A clean view of available prescription history and care records from the patient side."
       />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <DashboardCard title="Prescriptions" value={prescriptions.length} hint="Available records tied to this patient account." accent="sky" />
-        <DashboardCard title="Latest Doctor" value={latestPrescription?.doctor?.name || "--"} hint="Most recent prescribing doctor." accent="emerald" />
-        <DashboardCard title="Patient Profile" value={patientProfile?.name || "Ready"} hint={patientProfile?.phone || "Linked patient account is active."} accent="violet" />
+        <DashboardCard title="Prescriptions" value={prescriptions.length} hint="Available records tied to this patient account." accent="primary" />
+        <DashboardCard title="Latest Doctor" value={latestPrescription?.doctor?.name || "--"} hint="Most recent prescribing doctor." accent="light" />
+        <DashboardCard title="Patient Profile" value={patientProfile?.name || "Ready"} hint={patientProfile?.phone || "Linked patient account is active."} accent="blue" />
       </div>
 
-      <section className="mt-8 rounded-[28px] border border-white/70 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+      <section className="mt-8 rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.05)]">
         <h2 className="text-xl font-semibold text-slate-950">Care overview</h2>
         <p className="mt-3 text-sm text-slate-600">
           This patient-facing experience surfaces current prescription records and historical clinical notes available from the backend.

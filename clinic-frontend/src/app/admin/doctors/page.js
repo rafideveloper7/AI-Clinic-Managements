@@ -122,21 +122,20 @@ export default function AdminDoctorsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f0f0f0] p-6 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Doctors"
         subtitle="Admin can create, update, delete, and manage Free or Pro doctor accounts from one screen."
       />
 
       {message ? (
-        <div className="mb-6 rounded-2xl border border-[#add8e6] bg-[#e6f3ff] px-4 py-3 text-sm text-[#007bff] font-medium">
+        <div className="mb-6 rounded-2xl border border-[var(--border)] bg-[var(--primary-lighter)]/30 px-4 py-3 text-sm text-[var(--primary)] font-medium">
           {message}
         </div>
       ) : null}
 
       <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        {/* Management Form Container */}
-        <form onSubmit={handleSubmit} className="h-fit rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)]">
+        <form onSubmit={handleSubmit} className="h-fit rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.03)]">
           <div className="mb-6">
             <h2 className="text-xl font-semibold text-slate-950">
               {editingId ? "Update Doctor" : "Create Doctor"}
@@ -153,7 +152,7 @@ export default function AdminDoctorsPage() {
               placeholder="Doctor name"
               value={form.name}
               onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required
             />
             <input
@@ -161,7 +160,7 @@ export default function AdminDoctorsPage() {
               placeholder="Doctor email"
               value={form.email}
               onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required
             />
             <input
@@ -169,30 +168,30 @@ export default function AdminDoctorsPage() {
               placeholder={editingId ? "New password (optional)" : "Doctor password"}
               value={form.password}
               onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
               required={!editingId}
             />
             <select
               value={form.plan}
               onChange={(event) => setForm((current) => ({ ...current, plan: event.target.value }))}
-              className="rounded-2xl border border-slate-200 bg-[#f0f0f0]/30 px-4 py-3 outline-none focus:border-[#007bff]"
+              className="rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none focus:border-[var(--primary)]"
             >
               <option value="free">Free Plan</option>
               <option value="pro">Pro Plan</option>
             </select>
           </div>
 
-          <div className="mt-5 rounded-2xl bg-[#e6f3ff]/60 p-4 text-sm text-slate-700 border border-[#add8e6]/40">
-            <span className="font-semibold text-[#007bff]">Free:</span> limited patients, no AI features.
+          <div className="mt-5 rounded-2xl bg-[var(--primary-lighter)]/20 p-4 text-sm text-slate-700 border border-[var(--border)]">
+            <span className="font-semibold text-[var(--primary)]">Free:</span> limited patients, no AI features.
             <br />
-            <span className="font-semibold text-[#007bff]">Pro:</span> unlimited patients, AI features enabled, advanced analytics.
+            <span className="font-semibold text-[var(--primary)]">Pro:</span> unlimited patients, AI features enabled, advanced analytics.
           </div>
 
           <div className="mt-6 flex flex-col gap-3">
             <button
               type="submit"
               disabled={saving}
-              className="rounded-full bg-[#007bff] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0056b3] disabled:opacity-60 shadow-sm"
+              className="rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition hover:shadow-[0_0_0_4px_var(--primary-lighter)] disabled:opacity-60"
             >
               {saving ? "Saving..." : editingId ? "Update doctor" : "Create doctor"}
             </button>
@@ -200,7 +199,7 @@ export default function AdminDoctorsPage() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[#f0f0f0]"
+                className="rounded-full border border-[var(--border)] bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[var(--primary-lighter)]/20"
               >
                 Cancel
               </button>
@@ -208,10 +207,9 @@ export default function AdminDoctorsPage() {
           </div>
         </form>
 
-        {/* Doctors Grid Cards */}
         <div className="grid gap-4 lg:grid-cols-2 content-start">
           {doctors.map((doctor) => (
-            <article key={doctor._id} className="rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)] flex flex-col justify-between">
+            <article key={doctor._id} className="rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.03)] flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
                 <div className="flex items-start justify-between gap-4">
                   <div className="truncate">
@@ -219,20 +217,20 @@ export default function AdminDoctorsPage() {
                     <p className="mt-1 text-sm text-slate-600 truncate">{doctor.email}</p>
                   </div>
                   <span className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider border ${
-                    doctor.plan === "pro" 
-                      ? "bg-[#e6f3ff] text-[#007bff] border-[#add8e6]/60" 
-                      : "bg-[#f0f0f0] text-slate-600 border-slate-200"
+                    doctor.plan === "pro"
+                      ? "bg-[var(--primary-lighter)] text-[var(--primary)] border-[var(--border)]"
+                      : "bg-[var(--primary-lighter)]/30 text-slate-600 border-[var(--border)]"
                   }`}>
                     {doctor.plan || "free"}
                   </span>
                 </div>
 
                 <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                  <div className="rounded-2xl bg-[#f0f0f0]/50 p-4 border border-slate-100">
+                  <div className="rounded-2xl bg-[var(--primary-lighter)]/20 p-4 border border-[var(--border)]">
                     <p className="text-xs text-slate-500 uppercase font-medium tracking-wider">Role</p>
                     <p className="mt-1 font-semibold text-slate-900 truncate">{doctor.role}</p>
                   </div>
-                  <div className="rounded-2xl bg-[#f0f0f0]/50 p-4 border border-slate-100">
+                  <div className="rounded-2xl bg-[var(--primary-lighter)]/20 p-4 border border-[var(--border)]">
                     <p className="text-xs text-slate-500 uppercase font-medium tracking-wider">Account type</p>
                     <p className="mt-1 font-semibold text-slate-900 truncate">
                       {doctor.plan === "pro" ? "AI Enabled" : "Standard"}
@@ -240,24 +238,24 @@ export default function AdminDoctorsPage() {
                   </div>
                 </div>
 
-                <div className="mt-4 rounded-2xl bg-[#e6f3ff]/40 p-4 text-xs text-slate-600 border border-[#add8e6]/20">
+                <div className="mt-4 rounded-2xl bg-[var(--primary-lighter)]/20 p-4 text-xs text-slate-600 border border-[var(--border)]">
                   {doctor.plan === "pro"
                     ? "Pro: unlimited patients, AI features enabled, advanced analytics."
                     : "Free: limited patients, no AI features, basic analytics only."}
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-col gap-2 pt-4 border-t border-slate-100">
+              <div className="mt-6 flex flex-col gap-2 pt-4 border-t border-[var(--border)]">
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleEdit(doctor)}
-                    className="flex-1 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-[#f0f0f0]"
+                    className="flex-1 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-[var(--primary-lighter)]/20"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => togglePlan(doctor)}
-                    className="flex-1 rounded-full bg-[#007bff] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0056b3] shadow-sm"
+                    className="flex-1 rounded-full bg-[var(--primary)] px-4 py-2 text-xs font-semibold text-white transition hover:shadow-[0_0_0_4px_var(--primary-lighter)] shadow-sm"
                   >
                     {doctor.plan === "pro" ? "Downgrade" : "Upgrade"}
                   </button>

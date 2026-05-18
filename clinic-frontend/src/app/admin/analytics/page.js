@@ -36,19 +36,18 @@ export default function AdminAnalyticsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f0f0f0] p-6 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Analytics"
         subtitle="Visual metrics for your final presentation, investor-style walkthrough, or judge demo."
       />
 
-      {/* Chart Layout Engine */}
       <div className="mt-8 grid gap-6 xl:grid-cols-2">
-        <div className="rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)] transition hover:shadow-[0_20px_60px_rgba(0,123,255,0.06)]">
+        <div className="rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.03)] transition hover:shadow-[0_20px_60px_rgba(44,94,173,0.06)]">
           <MetricsBarChart data={chartData} title="Operational volume" />
         </div>
         
-        <div className="rounded-[28px] border border-white bg-white p-6 shadow-[0_20px_60px_rgba(0,123,255,0.03)] transition hover:shadow-[0_20px_60px_rgba(0,123,255,0.06)]">
+        <div className="rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.03)] transition hover:shadow-[0_20px_60px_rgba(44,94,173,0.06)]">
           <StatusPieChart data={pieData} title="Usage mix" />
         </div>
       </div>

@@ -34,19 +34,19 @@ export default function ReceptionistDashboard() {
   }
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 p-6">
       <Navbar
         title="Receptionist Dashboard"
         subtitle="Keep front-desk operations moving with patient intake and booking support."
       />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <DashboardCard title="Patient Records" value={patientCount} hint="Patients visible to this receptionist." accent="sky" />
-        <DashboardCard title="Doctors Available" value={doctorCount} hint="Doctors available for bookings." accent="emerald" />
-        <DashboardCard title="Workflow" value="Ready" hint="Patients and booking pages are live." accent="amber" />
+        <DashboardCard title="Patient Records" value={patientCount} hint="Patients visible to this receptionist." accent="primary" />
+        <DashboardCard title="Doctors Available" value={doctorCount} hint="Doctors available for bookings." accent="light" />
+        <DashboardCard title="Workflow" value="Ready" hint="Patients and booking pages are live." accent="blue" />
       </div>
 
-      <section className="mt-8 rounded-[28px] border border-white/70 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+      <section className="mt-8 rounded-[28px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_60px_rgba(44,94,173,0.05)]">
         <h2 className="text-xl font-semibold text-slate-950">Front desk priorities</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -54,7 +54,7 @@ export default function ReceptionistDashboard() {
             "Book appointments for incoming patients",
             "Keep scheduling polished for the live demo",
           ].map((item) => (
-            <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+            <div key={item} className="rounded-2xl border border-[var(--border)] bg-[var(--primary-lighter)]/20 p-4 text-sm text-slate-700 hover:shadow-md transition-shadow">
               {item}
             </div>
           ))}

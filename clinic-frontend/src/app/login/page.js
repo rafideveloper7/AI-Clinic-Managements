@@ -63,14 +63,20 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen px-6 py-10 lg:px-10">
-      <div className="mx-auto grid max-w-6xl overflow-hidden rounded-[40px] border border-stone-300/70 bg-[rgba(255,252,247,0.92)] shadow-[0_30px_90px_rgba(28,25,23,0.12)] backdrop-blur lg:grid-cols-[1fr_0.95fr]">
-        <section className="bg-[#2f2a25] p-8 text-stone-100 lg:p-12">
-          <p className="text-sm uppercase tracking-[0.45em] text-emerald-200">CareOps</p>
-          <h1 className="mt-6 text-4xl font-semibold leading-tight lg:text-5xl">
+    <main className="min-h-screen bg-gradient-to-br from-[var(--primary-lighter)]/30 via-white to-[var(--primary-light)]/20 px-6 py-10 lg:px-10 flex items-center justify-center">
+      <div className="mx-auto grid max-w-6xl overflow-hidden rounded-[32px] border border-[var(--border)] bg-white shadow-[0_30px_90px_rgba(44,94,173,0.12)] backdrop-blur lg:grid-cols-[1fr_0.95fr]">
+        <section className="bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] p-8 text-white lg:p-12">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 mb-4">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary-light)] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--primary-light)]"></span>
+            </span>
+            <p className="text-xs uppercase tracking-[0.45em] text-white font-semibold">CareOps</p>
+          </div>
+          <h1 className="mt-6 text-4xl font-bold leading-tight lg:text-5xl">
             Run your clinic from one intelligent command center.
           </h1>
-          <p className="mt-5 max-w-xl text-stone-300">
+          <p className="mt-5 max-w-xl text-stone-200">
             Secure access for admin, doctor, receptionist, and patient roles with
             analytics, medical records, prescriptions, and AI-assisted workflows.
           </p>
@@ -82,66 +88,66 @@ export default function LoginPage() {
               "Prescription generation",
               "AI suggestion box for pro doctors",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm text-stone-200">
+              <div key={item} className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-sm">
                 {item}
               </div>
             ))}
           </div>
 
           <div className="mt-8 space-y-3">
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-400">Demo roles</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[var(--primary-lighter)]">Demo roles</p>
             {DEMO_LOGINS.map((item) => (
               <button
                 key={item.label}
                 type="button"
                 onClick={() => handleDemoLogin(item)}
-                className="flex w-full items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-left text-sm text-stone-200 transition hover:bg-white/10"
+                className="flex w-full items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-left text-sm text-white transition hover:bg-white/20"
               >
                 <span>{item.label}</span>
-                <span className="text-[#d9c8af]">{item.role}</span>
+                <span className="text-[var(--primary-lighter)]">{item.role}</span>
               </button>
             ))}
           </div>
         </section>
 
-        <section className="p-8 lg:p-12">
+        <section className="p-8 lg:p-12 bg-white">
           <div className="max-w-md">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-700">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--primary)]">
               Login
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-stone-900">Welcome back</h2>
-            <p className="mt-3 text-sm text-stone-600">
+            <h2 className="mt-4 text-3xl font-bold text-slate-900">Welcome back</h2>
+            <p className="mt-3 text-sm text-slate-600">
               Sign in with your project credentials to open the role-based dashboard.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-            <label className="block space-y-2 text-sm font-medium text-stone-700">
+            <label className="block space-y-2 text-sm font-medium text-slate-700">
               <span>Email</span>
               <input
                 type="email"
                 value={form.email}
                 onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 outline-none transition focus:border-[#8aa59c]"
+                className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none transition focus:border-[var(--primary)]"
                 placeholder="doctor@clinic.com"
                 required
               />
             </label>
 
-            <label className="block space-y-2 text-sm font-medium text-stone-700">
+            <label className="block space-y-2 text-sm font-medium text-slate-700">
               <span>Password</span>
               <input
                 type="password"
                 value={form.password}
                 onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-                className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 outline-none transition focus:border-[#8aa59c]"
+                className="w-full rounded-2xl border border-[var(--border)] bg-white px-4 py-3 outline-none transition focus:border-[var(--primary)]"
                 placeholder="password"
                 required
               />
             </label>
 
             {error ? (
-              <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+              <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                 {error}
               </div>
             ) : null}
@@ -149,7 +155,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={busy}
-              className="w-full rounded-full bg-stone-900 px-5 py-3 text-sm font-semibold text-stone-50 transition hover:bg-stone-800 disabled:opacity-60"
+              className="w-full rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition hover:shadow-[0_0_0_4px_var(--primary-lighter)] disabled:opacity-60"
             >
               {busy ? "Signing in..." : "Login to dashboard"}
             </button>
